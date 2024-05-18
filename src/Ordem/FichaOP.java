@@ -36,5 +36,13 @@ public class FichaOP {
         // Chamada para classe que realiza os cálculos de atributos da ficha.
         FichaCalculo.CalcularFicha(NEX, classe, atributos);
 
+		// Teste: Implementação da classe Ocultista
+		Ocultista o = new Ocultista();
+		System.out.println(o.CalcularPV(NEX, atributos));
+		System.out.println(o.CalcularPE(NEX, atributos));
+		System.out.println(o.CalcularSAN(NEX));
+
+
+
 	}
 }
