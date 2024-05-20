@@ -1,5 +1,6 @@
 package Ordem;
 import java.util.Scanner;
+import javax.swing.*;
 
 
 public class FichaOP {
@@ -11,8 +12,8 @@ public class FichaOP {
 		Scanner in = new Scanner(System.in);
 
 		// Lê a entrada com a classe e NEX do agente separados por espaço
-		System.out.print("Digite a Classe e NEX separados por espaço: \n");
-		String info = in.nextLine();
+		//System.out.print("Digite a Classe e NEX separados por espaço: \n");
+		String info = JOptionPane.showInputDialog("Digite a Classe e NEX separados por espaço:");
 
 		// Separa a string de entrada e atribui as informações nas devidas variáveis
 		String[] tokens = info.split(" ");
@@ -21,8 +22,8 @@ public class FichaOP {
 		int NEX = Integer.parseInt(tokens[1]);
 
 		// Lê a entrada dos atributos na ordem desejada
-		System.out.print("Agora, insira os atributos do agente na seguinte ordem - Agilidade, Força, Intelecto, Presença e Vigor:\n");
-		String tokens2 = in.nextLine();
+		//System.out.print("Agora, insira os atributos do agente na seguinte ordem - Agilidade, Força, Intelecto, Presença e Vigor:\n");
+		String tokens2 = JOptionPane.showInputDialog("Agora, insira os atributos do agente na seguinte ordem - Agilidade, Força, Intelecto, Presença e Vigor:");
 		in.close();
 
 		String[] values = tokens2.split(" ");
@@ -36,18 +37,18 @@ public class FichaOP {
 		switch (classe) {
 			case "Ocultista":
 				Ocultista ocultista = new Ocultista(classe, NEX, atributos);
-				System.out.println(ocultista.toString()); 
+				JOptionPane.showMessageDialog(null, ocultista.toString(), "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);				
 				break;
 			case "Especialista":
 				Especialista especialista = new Especialista(classe, NEX, atributos);
-				System.out.println(especialista.toString()); 
+				JOptionPane.showMessageDialog(null, especialista.toString(), "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);
 				break;
 			case "Combatente":
 				Combatente combatente = new Combatente(classe, NEX, atributos);
-				System.out.println(combatente.toString()); 
+				JOptionPane.showMessageDialog(null, combatente.toString(), "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);
 				break;
 			default:
-				System.out.println("A classe " + classe +" não consta no sistema da Ordem!");
+				JOptionPane.showMessageDialog(null, "Agentes do tipo " + classe +" não constam no sistema da Ordem!", "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);
 				break;
 		}
 
