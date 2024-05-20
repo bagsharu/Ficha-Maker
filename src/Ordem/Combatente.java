@@ -56,6 +56,6 @@ public class Combatente implements Agente {
     
     @Override
     public String toString() {
-        return "O Agente " + classe + " de NEX: " + NEX + "%, possui: " + CalcularPV() + "de PV, " + CalcularPE() + " de PE e " + CalcularSAN() + " de SAN." ;
+        return "O Agente " + classe + " de NEX: " + NEX + "%, possui: " + CalcularPV() + " de PV, " + CalcularPE() + " de PE e " + CalcularSAN() + " de SAN." ;
     }
 }
