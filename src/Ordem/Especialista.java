@@ -2,22 +2,62 @@ package Ordem;
 
 public class Especialista implements Agente {
 
+    private String classe;
+    private int NEX;
+    private int[] atb;
+
+    public Especialista(String classe, int nEX, int[] atb) {
+        this.classe = classe;
+        NEX = nEX;
+        this.atb = atb;
+    }
+
     @Override
-    public int CalcularPV(int NEX, int[] atb) {
+    public int CalcularPV() {
         // Fórmula de cálculo para pontos de vida [ 16 + VIGOR + (3 + VIGOR) * NEX ]
 		return 16 + atb[4] + (3 + atb[4]) * ((NEX-5)/5);
     }
 
     @Override
-    public int CalcularPE(int NEX, int[] atb) {
+    public int CalcularPE() {
         // Fórmula de cálculo para pontos de esforço [ 3 + PRESENÇA + (3 + PRESENÇA) * NEX ]
 		return 3 + atb[3] + (3 + atb[3]) * ((NEX-5)/5);
     }
 
     @Override
-    public int CalcularSAN(int NEX) {
+    public int CalcularSAN() {
         // Fórmula de cálculo para pontos de sanidade [ 16 + 4 * NEX ]
 		return 16 + (4 * ((NEX-5)/5));
+    }
+
+    
+    public String getClasse() {
+        return classe;
+    }
+
+    public void setClasse(String classe) {
+        this.classe = classe;
+    }
+
+    public int getNEX() {
+        return NEX;
+    }
+
+    public void setNEX(int nEX) {
+        NEX = nEX;
+    }
+
+    public int[] getAtb() {
+        return atb;
+    }
+
+    public void setAtb(int[] atb) {
+        this.atb = atb;
+    }
+
+    @Override
+    public String toString() {
+        return "O Agente " + classe + " de NEX: " + NEX + "%, possui: " + CalcularPV() + "de PV, " + CalcularPE() + " de PE e " + CalcularSAN() + " de SAN." ;
     }
     
 }
