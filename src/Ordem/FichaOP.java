@@ -32,17 +32,24 @@ public class FichaOP {
             atributos[i] = Integer.parseInt(values[i]);
         }
 
-        
-        // Chamada para classe que realiza os cálculos de atributos da ficha.
-        FichaCalculo.CalcularFicha(NEX, classe, atributos);
 
-		// Teste: Implementação da classe Ocultista
-		Ocultista o = new Ocultista();
-		System.out.println(o.CalcularPV(NEX, atributos));
-		System.out.println(o.CalcularPE(NEX, atributos));
-		System.out.println(o.CalcularSAN(NEX));
-
-
+		switch (classe) {
+			case "Ocultista":
+				Ocultista ocultista = new Ocultista(classe, NEX, atributos);
+				System.out.println(ocultista.toString()); 
+				break;
+			case "Especialista":
+				Especialista especialista = new Especialista(classe, NEX, atributos);
+				System.out.println(especialista.toString()); 
+				break;
+			case "Combatente":
+				Combatente combatente = new Combatente(classe, NEX, atributos);
+				System.out.println(combatente.toString()); 
+				break;
+			default:
+				System.out.println("A classe " + classe +" não consta no sistema da Ordem!");
+				break;
+		}
 
 	}
 }
