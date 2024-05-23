@@ -19,7 +19,7 @@ public class LeituraDados {
 															"Agente Ordo Realitas", 
 															JOptionPane.PLAIN_MESSAGE);
 				break;
-			case 3:
+			case 2:
 				Ocultista ocultista = new Ocultista(NEX, atributos);
 				JOptionPane.showMessageDialog(null, ocultista.toString(), 
 																	"Agente Ordo Realitas", 
