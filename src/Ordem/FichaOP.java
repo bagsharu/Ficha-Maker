@@ -1,5 +1,4 @@
 package Ordem;
-import java.util.Scanner;
 import javax.swing.*;
 
 
@@ -8,49 +7,29 @@ public class FichaOP {
 	public static void main(String[] args) {
 
 		int[] atributos = new int[5];
+		String[] options = {"Combatente","Especialista","Ocultista"};
 
-		Scanner in = new Scanner(System.in);
-
-		// Lê a entrada com a classe e NEX do agente separados por espaço
-		//System.out.print("Digite a Classe e NEX separados por espaço: \n");
-		String info = JOptionPane.showInputDialog("Digite a Classe e NEX separados por espaço:");
-
-		// Separa a string de entrada e atribui as informações nas devidas variáveis
-		String[] tokens = info.split(" ");
-
-		String classe = tokens[0];
-		int NEX = Integer.parseInt(tokens[1]);
-
-		// Lê a entrada dos atributos na ordem desejada
-		//System.out.print("Agora, insira os atributos do agente na seguinte ordem - Agilidade, Força, Intelecto, Presença e Vigor:\n");
-		String tokens2 = JOptionPane.showInputDialog("Agora, insira os atributos do agente na seguinte ordem - Agilidade, Força, Intelecto, Presença e Vigor:");
-		in.close();
-
+		// Dispõe ao usuário as três classes disponíveis em Ordem Paranormal.
+		int classe = JOptionPane.showOptionDialog(null, 
+											"Selecione uma das Classes:",
+												"Agente Ordo Realitas",  
+													JOptionPane.DEFAULT_OPTION, 
+													JOptionPane.INFORMATION_MESSAGE,
+													null, options, options[0]);
+		
+		// Recebe o NEX pela interface de usuário e converte para int.
+		String nivel = JOptionPane.showInputDialog("Digite o NEX do agente:");
+		int NEX = Integer.parseInt(nivel);
+		
+		// Recebe os atributos de ficha e converte para valores inteiros em values.
+		String tokens2 = JOptionPane.showInputDialog("Agora, insira os atributos do agente na seguinte ordem\n" + 
+													 "- Agilidade, Força, Intelecto, Presença e Vigor:");
 		String[] values = tokens2.split(" ");
-
-		// Converte os atributos em valores inteiros e os armazena em values.
         for (int i = 0; i < 5; i++) {
-            atributos[i] = Integer.parseInt(values[i]);
-        }
-
-
-		switch (classe) {
-			case "Ocultista":
-				Ocultista ocultista = new Ocultista(classe, NEX, atributos);
-				JOptionPane.showMessageDialog(null, ocultista.toString(), "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);				
-				break;
-			case "Especialista":
-				Especialista especialista = new Especialista(classe, NEX, atributos);
-				JOptionPane.showMessageDialog(null, especialista.toString(), "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);
-				break;
-			case "Combatente":
-				Combatente combatente = new Combatente(classe, NEX, atributos);
-				JOptionPane.showMessageDialog(null, combatente.toString(), "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);
-				break;
-			default:
-				JOptionPane.showMessageDialog(null, "Agentes do tipo " + classe +" não constam no sistema da Ordem!", "Agente Ordo Realitas", JOptionPane.PLAIN_MESSAGE);
-				break;
-		}
-
+            	atributos[i] = Integer.parseInt(values[i]);
+        
+  		}
+		LeituraDados.LerDados(classe, NEX, atributos);
+		
 	}
 }
