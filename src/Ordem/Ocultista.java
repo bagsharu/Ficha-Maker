@@ -3,12 +3,11 @@ package Ordem;
 
 public class Ocultista implements Agente {
 
-    private String classe;
+    private String classe = "Ocultista";
     private int NEX;
     private int[] atb;
 
-    public Ocultista(String classe, int nEX, int[] atb) {
-        this.classe = classe;
+    public Ocultista(int nEX, int[] atb) {
         NEX = nEX;
         this.atb = atb;
     }
@@ -35,10 +34,6 @@ public class Ocultista implements Agente {
         return classe;
     }
 
-    public void setClasse(String classe) {
-        this.classe = classe;
-    }
-
     public int getNEX() {
         return NEX;
     }
@@ -57,7 +52,7 @@ public class Ocultista implements Agente {
 
     @Override
     public String toString() {
-        return "O Agente " + classe + " de NEX: " + NEX + "% possui: " + CalcularPV() + " de PV, " + CalcularPE() + " de PE e " + CalcularSAN() + " de SAN." ;
+        return "O Ocultista de NEX: " + NEX + "% possui: " + CalcularPV() + " de PV, " + CalcularPE() + " de PE e " + CalcularSAN() + " de SAN." ;
     }
 
 }

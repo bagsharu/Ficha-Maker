@@ -2,12 +2,11 @@ package Ordem;
 
 public class Combatente implements Agente {
 
-    private String classe;
+    private String classe = "Combatente";
     private int NEX;
     private int[] atb;
 
-    public Combatente(String classe, int nEX, int[] atb) {
-        this.classe = classe;
+    public Combatente(int nEX, int[] atb) {
         NEX = nEX;
         this.atb = atb;
     }
@@ -34,10 +33,6 @@ public class Combatente implements Agente {
         return classe;
     }
 
-    public void setClasse(String classe) {
-        this.classe = classe;
-    }
-
     public int getNEX() {
         return NEX;
     }
@@ -56,6 +51,6 @@ public class Combatente implements Agente {
     
     @Override
     public String toString() {
-        return "O Agente " + classe + " de NEX: " + NEX + "% possui: " + CalcularPV() + " de PV, " + CalcularPE() + " de PE e " + CalcularSAN() + " de SAN." ;
+        return "O Combatente de NEX: " + NEX + "% possui: " + CalcularPV() + " de PV, " + CalcularPE() + " de PE e " + CalcularSAN() + " de SAN." ;
     }
 }
